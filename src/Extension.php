@@ -185,6 +185,7 @@ class Extension implements ExtensionInterface
                     ->setDeprecated('The "report" option is deprecated. Use "reports" instead.')
                     ->children()
                         ->scalarNode('format')->defaultValue('html')->end()
+                        ->scalarNode('final')->defaultValue('true')->end()
                         ->arrayNode('options')
                             ->useAttributeAsKey('name')
                             ->prototype('scalar')->end()
