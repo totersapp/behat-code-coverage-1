@@ -124,4 +124,29 @@ class ReportService
             }
         }
     }
+        
+    public function combine($content1,$content2){
+        if(is_array($content1) && empty($content1)){
+            return $content2;
+        }
+        if($content1 == 3){
+            if(is_array($content2) && empty($content2))
+                return 3;
+            else
+                return $content2;
+        }
+        else if(is_null($content1)){
+            if((is_array($content2) && empty($content2)) || $content2 == 3)
+                return $content1;
+            else
+                return $content2;
+        }
+        else{
+            if(!$content2 || empty($content2) || $content2 == 3)
+                return $content1;
+            else
+                return array_unique(array_merge($content1,$content2));
+            
+        }
+    }
 }
